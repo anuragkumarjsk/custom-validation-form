@@ -1,0 +1,25 @@
+.table_stats{
+        min-width : 98vw;
+        border : solid 1px black;
+        background-color: black;
+        color: black;
+        font-weight: 800;
+        padding:2px ;
+        margin:5px ;
+        }
+.tr_stats{
+    border : solid 1px white;
+    padding:5px ;
+    margin:15px ;
+    font-size: larger;
+    border-radius: 6px;
+}        
+
+.back2{
+    background-color:lightcoral ;
+}
+.back1{
+    background-color:lightgreen;
+}
+    
+    
