@@ -240,9 +240,19 @@ const [del_count,set_del_count]=useState(0)
         //     })
 
         // // props.ssv({...props.sv,TotalAmt: parseFloat(props.sv.BillAmt)+parseFloat(props.sv.TransportChrg)+ sum})
+        console.log(parseFloat(props.sv.TransportChrg))
+        var v1=parseFloat(props.sv.BillAmt) ;
+        var v2=parseFloat(props.sv.TransportChrg) ;
+        var tot=v1+v2
+        console.log(v1+v2)
+                  props.sv.TotalAmt=tot
+                 props.ssv({...props.sv,TotalAmt:tot})
 
-        props.ssv({...props.sv,TotalAmt: props.sv.BillAmt + props.sv.TransportChrg })
-    }, [props.sv.TransportChrg])
+        // props.ssv((prevState)=>({
+        //     ...prevState,
+        //     TotalAmt:tot
+        // }))
+    }, [del_count, props.sv.BillAmt,props.sv.TransportChrg])
 
     useEffect(() => {
         props.ssv({...props.sv,DueAmt: props.sv.TotalAmt - props.sv.Advance})
@@ -288,7 +298,7 @@ const [del_count,set_del_count]=useState(0)
                         <input name="Order_Amount" value={ ordr.Order_Amount=ordr.Order_Quantity*ordr.Order_Rate   }  placeholder="Amount" disabled className="inp"  type="number"/>
                     </th>
                 </tr>
-             </table>   
+             
              {         props.sv.OrderTable.map((k,indx)=>{
                        return (<tr className="tablebox" key={"k"+indx}>
                            <td className="tablecell" ><button className="del_btn" onClick={(e)=>delete_order(e,indx)}>delete{' '}{indx+1}</button></td>
@@ -300,7 +310,7 @@ const [del_count,set_del_count]=useState(0)
                      })
                      }
 
-            <table>
+            
             <tr className="tablebox">
                                 <td className="tablecell">.</td>
                                 <td className="tablecell">.</td>
